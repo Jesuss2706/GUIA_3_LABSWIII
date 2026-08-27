@@ -21,7 +21,7 @@ formMedico.addEventListener("submit", (e) => {
   // actualizar select
   const option = document.createElement("option");
   option.value = medico.id;
-  option.textContent = `${medico.nombres} ${medico.apellidos} ${medico.especialidad} ${medico.horarioAtencion} ${medico.aniosExperiencia} ${medico.bibliografia}`;
+  option.textContent = `${medico.nombres} ${medico.apellidos}`;
   medicoSelect.appendChild(option);
 
   formMedico.reset();
