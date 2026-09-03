@@ -37,6 +37,7 @@ formCitas.addEventListener("submit", (e) => {
       <td>${cita.horaFin}</td>
       <td>${cita.medico.nombres} ${cita.medico.apellidos}</td>
       <td>${cita.paciente.nombres} ${cita.paciente.apellidos}</td>
+      <td>${cita.paciente.genero}</td>
     `;
     tablaCitas.appendChild(fila);
 

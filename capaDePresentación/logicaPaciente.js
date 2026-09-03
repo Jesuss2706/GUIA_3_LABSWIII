@@ -11,8 +11,9 @@ formPaciente.addEventListener("submit", (e) => {
   e.preventDefault();
   const nombres = document.getElementById("nombresPaciente").value; 
   const apellidos = document.getElementById("apellidosPaciente").value;
+  const genero = document.getElementsByName("generoPaciente");
 
-  const paciente = gestionarPacientes.registrarPaciente(nombres, apellidos);
+  const paciente = gestionarPacientes.registrarPaciente(nombres, apellidos, genero);
   console.log("Paciente registrado:", paciente);
   // actualizar select
   const option = document.createElement("option");

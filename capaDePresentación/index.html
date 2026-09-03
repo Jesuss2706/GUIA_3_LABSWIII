@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Agendamiento de citas médicas</title>
   <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
   <div id="notificaciones" class="notificaciones-contenedor"></div>
 
@@ -16,49 +18,91 @@
 
   <h2>Registrar Medico</h2>
   <form id="formMedico">
+    <label for="nombresMedico">Nombres</label>
     <input type="text" id="nombresMedico" placeholder="Nombres" required>
+    <label class="error" id="nombreMedicoError"></label>
+    <label for="apellidosMedico">Apellidos</label>
     <input type="text" id="apellidosMedico" placeholder="Apellidos" required>
+    <label class="error" id="apellidoMedicoError"></label>
+    <label for="especialidadMedico">Especialidad</label>
     <input type="text" id="especialidadMedico" placeholder="Especialidad" required>
-    <input type="time" id="horarioAtencionMedico" placeholder="Horario de Atención" required>
+    <label class="error" id="especialidadMedicoError"></label>
+    <label for="horarioInicioMedico">Horario de Inicio</label>
+    <input type="time" id="horarioInicioMedico" placeholder="Horario de Inicio" required>
+    <label class="error" id="horarioInicioMedicoError"></label>
+    <label for="horarioFinMedico">Horario de Fin</label>
+    <input type="time" id="horarioFinMedico" placeholder="Horario de Fin" required>
+    <label class="error" id="horarioFinMedicoError"></label>
+    <label for="aniosExperienciaMedico">Años de Experiencia</label>
     <input type="text" id="aniosExperienciaMedico" placeholder="Años de Experiencia" required>
+    <label class="error" id="aniosExperienciaMedicoError"></label>
+    <label for="bibliografiaMedico">Bibliografía</label>
     <input type="text" id="bibliografiaMedico" placeholder="Bibliografía" required>
-    <button type="submit" id="btnAgregarMedico" disabled>Agregar Medico</button>
+    <label class="error" id="bibliografiaMedicoError"></label>
+    <button type="submit" id="btnAgregarMedico" disabled>Agregar Medico</button><br>
   </form>
 
   <h2>Registrar Paciente</h2>
   <form id="formPaciente">
     <input type="text" id="nombresPaciente" placeholder="Nombres" required>
+    <label class="error" id="nombresPacienteError"></label>
     <input type="text" id="apellidosPaciente" placeholder="Apellidos" required>
+    <label class="error" id="apellidosPacienteError"></label>
+
+    <fieldset class="radio-group">
+      <legend>Género:</legend>
+      <label>
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        Femenino
+      </label>
+      <label>
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        Masculino
+      </label>
+      <label>
+        <input type="radio" id="otro" name="genero" value="otro">
+        Otro
+      </label>
+      <label class="error" id="errorGenero"></label><br>
+    </fieldset>
+
     <button type="submit" id="btnAgregarPaciente" disabled>Agregar Paciente</button>
+
   </form>
 
   <h2>Registrar citas medicas</h2>
   <form id="formCitas">
-    
+
     <label for="fecha">Fecha</label>
     <input type="date" id="fecha" required>
+    <label class="error" id="fechaError"></label>
 
     <label for="horaInicio">Hora Inicio</label>
     <input type="time" id="horaInicio" required>
+    <label class="error" id="horaInicioError"></label>
 
     <label for="horaFin">Hora Fin</label>
     <input type="time" id="horaFin" required>
+    <label class="error" id="horaFinError"></label>
 
     <label for="medicoSelect">Medico</label>
     <select id="medicoSelect" required></select>
+    <label class="error" id="medicoError"></label>
 
     <label for="pacienteSelect">Paciente</label>
     <select id="pacienteSelect" required></select>
+    <label class="error" id="pacienteError"></label>
+
     <button type="submit" id="btnAgregarCita" disabled>Agregar Cita</button>
   </form>
 
   <h2>Citas Registradas</h2>
   <table border="1">
     <thead>
-      <tr>        
+      <tr>
         <th>Fecha</th>
         <th>Hora Inicio</th>
-        <th>Hora Fin</th>        
+        <th>Hora Fin</th>
         <th>Medico</th>
         <th>Paciente</th>
       </tr>
@@ -92,6 +136,7 @@
   <script src="logicaMedico.js"></script>
   <script src="logicaPaciente.js"></script>
   <script src="logicaCita.js"></script>
+  <script src="validaciones.js"></script>
 
 
 </body>

@@ -6,10 +6,6 @@ class GestionarCitas {
     this.citaRepo = citaRepo;
   }
   registrarCita(fecha, horaInicio, horaFin, idMedico, idPaciente) {
-    if(horaInicio > horaFin) {
-      throw new Error("La hora de inicio no puede ser mayor a la hora de fin");
-    }
-
     const id = this.citaRepo.siguienteId();
     const medico = this.medicoRepo.buscarPorId(idMedico);
     if (!medico) {

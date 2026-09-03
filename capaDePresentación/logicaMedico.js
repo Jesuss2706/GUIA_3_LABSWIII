@@ -12,11 +12,12 @@ formMedico.addEventListener("submit", (e) => {
   const nombres = document.getElementById("nombresMedico").value;
   const apellidos = document.getElementById("apellidosMedico").value;
   const especialidad = document.getElementById("especialidadMedico").value;
-  const horarioAtencion = document.getElementById("horarioAtencionMedico").value;
+  const horarioInicioAtencion = document.getElementById("horarioInicioMedico").value;
+  const horarioFinAtencion = document.getElementById("horarioFinMedico").value;
   const aniosExperiencia = document.getElementById("aniosExperienciaMedico").value;
   const bibliografia = document.getElementById("bibliografiaMedico").value;
 
-  const medico = gestionarMedicos.registrarMedico(nombres, apellidos, especialidad, horarioAtencion, aniosExperiencia, bibliografia);
+  const medico = gestionarMedicos.registrarMedico(nombres, apellidos, especialidad, horarioInicioAtencion, horarioFinAtencion, aniosExperiencia, bibliografia);
 
   // actualizar select
   const option = document.createElement("option");
