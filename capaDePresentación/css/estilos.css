@@ -69,6 +69,7 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="time"],
+input[type="number"],
 select {
     width: 100%;
     padding: 10px;
@@ -76,6 +77,30 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* Quitar las flechitas del input number en Chrome/Safari/Edge para que
+   se vea igual de "limpio" que los demás inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 button {
@@ -155,7 +180,30 @@ table tr:hover {
     to { opacity: 1; transform: translateX(0); }
 }
 
+.radio-group {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.radio-group legend {
+    font-weight: bold;
+    padding: 0 4px;
+    font-size: 14px;
+}
+
 .radio-group label {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 15px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 4px;
+    vertical-align: middle;
 }

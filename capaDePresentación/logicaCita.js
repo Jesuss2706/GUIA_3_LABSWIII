@@ -13,7 +13,11 @@ formCitas.addEventListener("change", () => {
 
 formCitas.addEventListener("submit", (e) => {
   e.preventDefault();
- 
+
+  if (!validarFormularioCita()) {
+    return;
+  }
+
   const fecha = document.getElementById("fecha").value;
   const horaInicio = document.getElementById("horaInicio").value;
   const horaFin = document.getElementById("horaFin").value;

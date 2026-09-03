@@ -1,14 +1,12 @@
 class Medico {
-  constructor(id, nombres, apellidos, especialidad, horarioAtencion, aniosExperiencia, bibliografia) {
+  constructor(id, nombres, apellidos, especialidad, horarioInicioAtencion, horarioFinAtencion, aniosExperiencia, bibliografia) {
     this.id = id;
     this.nombres = nombres;
     this.apellidos = apellidos;
     this.especialidad = especialidad;
-    this.horarioAtencion = horarioAtencion;
+    this.horarioInicioAtencion = horarioInicioAtencion;
+    this.horarioFinAtencion = horarioFinAtencion;
     this.aniosExperiencia = aniosExperiencia;
     this.bibliografia = bibliografia;
   }
 }
-
-
-

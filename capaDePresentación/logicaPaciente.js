@@ -2,16 +2,27 @@ const formPaciente = document.getElementById("formPaciente");
 const pacienteSelect = document.getElementById("pacienteSelect");
 const btnAgregarPaciente = document.getElementById("btnAgregarPaciente");
 
-// habilita/deshabilita el botón según la validez del formulario
+// habilita/deshabilita el botón según la validez nativa del formulario
 formPaciente.addEventListener("input", () => {
+  btnAgregarPaciente.disabled = !formPaciente.checkValidity();
+});
+formPaciente.addEventListener("change", () => {
   btnAgregarPaciente.disabled = !formPaciente.checkValidity();
 });
 
 formPaciente.addEventListener("submit", (e) => {
   e.preventDefault();
-  const nombres = document.getElementById("nombresPaciente").value; 
+
+  // Validación completa de la capa de presentación
+  if (!validarFormularioPaciente()) {
+    return;
+  }
+
+  const nombres = document.getElementById("nombresPaciente").value;
   const apellidos = document.getElementById("apellidosPaciente").value;
-  const genero = document.getElementsByName("generoPaciente");
+
+  const generoSeleccionado = document.querySelector('input[name="genero"]:checked');
+  const genero = generoSeleccionado ? generoSeleccionado.value : null;
 
   const paciente = gestionarPacientes.registrarPaciente(nombres, apellidos, genero);
   console.log("Paciente registrado:", paciente);
@@ -26,5 +37,3 @@ formPaciente.addEventListener("submit", (e) => {
 
   mostrarNotificacion(`Paciente ${paciente.nombres} ${paciente.apellidos} registrado con éxito`);
 });
-
-

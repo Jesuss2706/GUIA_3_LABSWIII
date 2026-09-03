@@ -19,13 +19,27 @@
   <h2>Registrar Medico</h2>
   <form id="formMedico">
     <label for="nombresMedico">Nombres</label>
-    <input type="text" id="nombresMedico" placeholder="Nombres" required>
+    <input type="text" id="nombresMedico" placeholder="Nombres" pattern="[A-Za-zÀ-ÿ\s]{2,50}" minlength="2" maxlength="50" required>
     <label class="error" id="nombreMedicoError"></label>
     <label for="apellidosMedico">Apellidos</label>
-    <input type="text" id="apellidosMedico" placeholder="Apellidos" required>
+    <input type="text" id="apellidosMedico" placeholder="Apellidos" pattern="[A-Za-zÀ-ÿ\s]{2,50}" minlength="2" maxlength="50" required>
     <label class="error" id="apellidoMedicoError"></label>
     <label for="especialidadMedico">Especialidad</label>
-    <input type="text" id="especialidadMedico" placeholder="Especialidad" required>
+    <select id="especialidadMedico" required>
+      <option value="" disabled selected>-- Seleccione una especialidad --</option>
+      <option value="Medicina General">Medicina General</option>
+      <option value="Cardiología">Cardiología</option>
+      <option value="Dermatología">Dermatología</option>
+      <option value="Endocrinología">Endocrinología</option>
+      <option value="Ginecología">Ginecología</option>
+      <option value="Neurología">Neurología</option>
+      <option value="Oftalmología">Oftalmología</option>
+      <option value="Ortopedia">Ortopedia</option>
+      <option value="Otorrinolaringología">Otorrinolaringología</option>
+      <option value="Pediatría">Pediatría</option>
+      <option value="Psiquiatría">Psiquiatría</option>
+      <option value="Urología">Urología</option>
+    </select>
     <label class="error" id="especialidadMedicoError"></label>
     <label for="horarioInicioMedico">Horario de Inicio</label>
     <input type="time" id="horarioInicioMedico" placeholder="Horario de Inicio" required>
@@ -34,33 +48,33 @@
     <input type="time" id="horarioFinMedico" placeholder="Horario de Fin" required>
     <label class="error" id="horarioFinMedicoError"></label>
     <label for="aniosExperienciaMedico">Años de Experiencia</label>
-    <input type="text" id="aniosExperienciaMedico" placeholder="Años de Experiencia" required>
+    <input type="number" id="aniosExperienciaMedico" placeholder="Años de Experiencia" min="0" max="60" step="1" required>
     <label class="error" id="aniosExperienciaMedicoError"></label>
     <label for="bibliografiaMedico">Bibliografía</label>
-    <input type="text" id="bibliografiaMedico" placeholder="Bibliografía" required>
+    <input type="text" id="bibliografiaMedico" placeholder="Bibliografía" minlength="10" maxlength="500" required>
     <label class="error" id="bibliografiaMedicoError"></label>
     <button type="submit" id="btnAgregarMedico" disabled>Agregar Medico</button><br>
   </form>
 
   <h2>Registrar Paciente</h2>
   <form id="formPaciente">
-    <input type="text" id="nombresPaciente" placeholder="Nombres" required>
+    <input type="text" id="nombresPaciente" placeholder="Nombres" pattern="[A-Za-zÀ-ÿ\s]{2,50}" minlength="2" maxlength="50" required>
     <label class="error" id="nombresPacienteError"></label>
-    <input type="text" id="apellidosPaciente" placeholder="Apellidos" required>
+    <input type="text" id="apellidosPaciente" placeholder="Apellidos" pattern="[A-Za-zÀ-ÿ\s]{2,50}" minlength="2" maxlength="50" required>
     <label class="error" id="apellidosPacienteError"></label>
 
     <fieldset class="radio-group">
       <legend>Género:</legend>
       <label>
-        <input type="radio" id="femenino" name="genero" value="femenino">
+        <input type="radio" id="femenino" name="genero" value="femenino" required>
         Femenino
       </label>
       <label>
-        <input type="radio" id="masculino" name="genero" value="masculino">
+        <input type="radio" id="masculino" name="genero" value="masculino" required>
         Masculino
       </label>
       <label>
-        <input type="radio" id="otro" name="genero" value="otro">
+        <input type="radio" id="otro" name="genero" value="otro" required>
         Otro
       </label>
       <label class="error" id="errorGenero"></label><br>
@@ -105,6 +119,7 @@
         <th>Hora Fin</th>
         <th>Medico</th>
         <th>Paciente</th>
+        <th>Género</th>
       </tr>
     </thead>
     <tbody id="tablaCitas"></tbody>
@@ -132,11 +147,12 @@
   <script src="../fachadaServices/gestionarCitasServices.js"></script>
 
   <!-- 4. Vista (estos sí están en la misma carpeta que index.html) -->
+  <!-- validaciones.js va primero porque logicaMedico/Paciente/Cita.js usan sus funciones al hacer submit -->
   <script src="notificaciones.js"></script>
+  <script src="validaciones.js"></script>
   <script src="logicaMedico.js"></script>
   <script src="logicaPaciente.js"></script>
   <script src="logicaCita.js"></script>
-  <script src="validaciones.js"></script>
 
 
 </body>
